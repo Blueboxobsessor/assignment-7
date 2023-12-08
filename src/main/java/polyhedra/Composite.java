@@ -76,10 +76,10 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-    	//while (scanner.hasNext())
-    	//{
+    	while (scanner.hasNext())
+    	{
     		this.add(PolyhedronFactory.createAndRead(scanner));
-    	//}	
+    	}	
     }
 
     /**
