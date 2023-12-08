@@ -78,7 +78,9 @@ public class Composite extends Polyhedron
     {
     	while (scanner.hasNext())
     	{
+    		System.out.println("Entered PolyFactory");
     		this.add(PolyhedronFactory.createAndRead(scanner));
+    		System.out.println("Exitted PolyFactory");
     	}	
     }
 
