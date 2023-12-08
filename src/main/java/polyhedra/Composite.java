@@ -10,7 +10,7 @@ import java.util.Iterator;
  * other Polyhedra. This,in theory, can include Composite objects
  * composed of other (nested) Composite objects.
  *
- * @author REPLACE_THIS_WITH_YOUR_NAME
+ * @author Dillon Sapp
  */
 public class Composite extends Polyhedron
     implements Cloneable, Iterable<Polyhedron>
@@ -43,7 +43,14 @@ public class Composite extends Polyhedron
         super("Composite");
 
         allPolyhedra = new Vector<Polyhedron>();
-
+        
+        Iterator<Polyhedron> it = src.iterator();
+        
+        while (it.hasNext())
+        {
+        	this.add(it.next());
+        }
+        
     }
 
     /**
@@ -55,7 +62,9 @@ public class Composite extends Polyhedron
      */
     public void add(Polyhedron toAdd)
     {
-
+    	this.allPolyhedra.add(toAdd.clone());
+    	
+    	this.boundingBox.merge(toAdd.getBoundingBox());
     }
 
     /**
@@ -67,7 +76,10 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-
+    	while (scanner.hasNext())
+    	{
+    		this.add(PolyhedronFactory.createAndRead(scanner));
+    	}	
     }
 
     /**
@@ -80,11 +92,13 @@ public class Composite extends Polyhedron
      */
     public void scale(double scalingFactor)
     {
-
+    	allPolyhedra = CreatePolyhedra.duplicateAndScale(allPolyhedra, scalingFactor);
+    	
+    	this.boundingBox.scale(scalingFactor);
     }
 
     /**
-     * Retrive the number of Polyhedra.
+     * Retrieve the number of Polyhedra.
      *
      * @return the number of Polyhedra that comprise this Composite object
      */
@@ -115,8 +129,7 @@ public class Composite extends Polyhedron
     @Override
     public String toString()
     {
-
-        return "Composite.toString not implemented";
+    	return String.format("%d polyhedra \n", allPolyhedra.size());
     }
 }
 

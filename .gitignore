@@ -12,3 +12,4 @@ gradle-app.setting
 
 # Do not include makefile
 makefile
+/bin/
