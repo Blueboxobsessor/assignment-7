@@ -188,22 +188,23 @@ public class TestComposite {
 
         Composite comp1 = new Composite();
         comp1.read(ins);
-
+        System.out.println("Assertion 1"); //Debug
         assertThat(comp1.size(), equalTo(2));
 
         // I should use the iterator to check that I have the correct `sphere`
         // and `cylinder`. I will perform part of this check.
         Iterator<Polyhedron> it   = comp1.iterator();
         Polyhedron           poly = it.next();
-
+        System.out.println("Assertion 2"); //Debug
         assertThat(poly.getType(), equalTo("Cylinder"));
         poly = it.next();
+        System.out.println("Assertion 3"); //Debug
         assertThat(poly.getType(), equalTo("Sphere"));
 
         // BoundingBox...
         Point expectedPoint = new Point(10, 10, 10);
         Point point = comp1.getBoundingBox().getUpperRightVertex();
-
+        System.out.println("Assertion 4"); //Debug
         assertThat(point, equalTo(expectedPoint));
 
         // I am skipping toString in this test
