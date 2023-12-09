@@ -139,8 +139,8 @@ public class Composite extends Polyhedron
         
         while (it.hasNext())
         {
-        	CompositeString.concat((it.next()).toString());
-        	CompositeString.concat("\n");
+        	String temp = String.format("%s \n",(it.next()).toString());
+        	CompositeString.concat(temp);
         }
         
         return CompositeString;
