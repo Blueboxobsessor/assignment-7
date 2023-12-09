@@ -76,9 +76,9 @@ public class Composite extends Polyhedron
      */
     public void read(Scanner scanner)
     {
-    	String numPoly = scanner.nextLine();
+    	int numPoly = Integer.parseInt((scanner.nextLine()).trim());
     	System.out.println("------------------------------------------->" + numPoly); //Debug
-    	for (int i = 0; i < 3; i++)
+    	for (int i = 0; i < numPoly; i++)
     	{
     		this.add(PolyhedronFactory.createAndRead(scanner));
     	}	
