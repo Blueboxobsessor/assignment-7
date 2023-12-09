@@ -79,6 +79,7 @@ public class Composite extends Polyhedron
     	while (scanner.hasNext())
     	{
     		String numPoly = scanner.nextLine();
+    		
     		this.add(PolyhedronFactory.createAndRead(scanner));
     	}	
     }
@@ -130,7 +131,18 @@ public class Composite extends Polyhedron
     @Override
     public String toString()
     {
-    	return String.format("%d polyhedra \n", allPolyhedra.size());
+    	
+    	String CompositeString = String.format("%s%d polyhedra \n", 
+    			super.toString(), 
+    			allPolyhedra.size());
+        
+        for (Polyhedron it : allPolyhedra)
+        {
+        	CompositeString.concat(it.toString());
+        	CompositeString.concat("\n");
+        }
+        
+        return CompositeString;
     }
 }
 
