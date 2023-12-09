@@ -142,7 +142,7 @@ public class Composite extends Polyhedron
         {
         	System.out.println("------------------------------------------------------------->entered while loop"); //Debug
         	String temp = String.format("%s \n",(it.next()).toString());
-        	CompositeString.concat(temp);
+        	CompositeString += temp;
         }
         
         return CompositeString;
