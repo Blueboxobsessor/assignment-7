@@ -139,7 +139,7 @@ public class Composite extends Polyhedron
         
         while (it.hasNext())
         {
-        	String temp = String.format("%s \n",(it.next()).toString());
+        	String temp = String.format("    %s \n",(it.next()).toString());
         	CompositeString += temp;
         }
         
