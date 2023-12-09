@@ -131,14 +131,15 @@ public class Composite extends Polyhedron
     @Override
     public String toString()
     {
+    	Iterator<Polyhedron> it = allPolyhedra.iterator();
     	
-    	String CompositeString = String.format("%s%d polyhedra \n", 
+    	String CompositeString  = String.format("%s%d polyhedra \n", 
     			super.toString(), 
     			allPolyhedra.size());
         
-        for (Polyhedron it : allPolyhedra)
+        while (it.hasNext())
         {
-        	CompositeString.concat(it.toString());
+        	CompositeString.concat((it.next()).toString());
         	CompositeString.concat("\n");
         }
         
