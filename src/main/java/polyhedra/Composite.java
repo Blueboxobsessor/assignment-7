@@ -137,7 +137,7 @@ public class Composite extends Polyhedron
     			super.toString(), 
     			this.size());
         
-        while (it.hasNext())
+        for (int i = 0 ; i < allPolyhedra.size(); i++)
         {
         	String temp = String.format("    %s \n",(it.next()).toString());
         	CompositeString += temp;
