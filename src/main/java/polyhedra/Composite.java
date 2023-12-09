@@ -79,7 +79,7 @@ public class Composite extends Polyhedron
     	while (scanner.hasNext())
     	{
     		String numPoly = scanner.nextLine();
-    		
+    		System.out.println("------------------------------------------------------->" + numPoly); //Debug
     		this.add(PolyhedronFactory.createAndRead(scanner));
     	}	
     }
@@ -139,6 +139,7 @@ public class Composite extends Polyhedron
         
         while (it.hasNext())
         {
+        	System.out.println("------------------------------------------------------------->entered while loop"); //Debug
         	String temp = String.format("%s \n",(it.next()).toString());
         	CompositeString.concat(temp);
         }
